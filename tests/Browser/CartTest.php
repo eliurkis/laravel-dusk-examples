@@ -17,13 +17,20 @@ class CartTest extends DuskTestCase
     public function testAddProductToCart()
     {
         $this->browse(function (Browser $browser) {
-            $productName = 'Aliquid explicabo culpa qui.';
+            // Home Page
+            $browser->visit(new HomePage);
 
-            $browser->visit(new HomePage)
-                    ->clickLink('Apple')
-                    // Products Page
-                    ->assertSee($productName)
-                    ->clickLink($productName)
+            // Get Collection Name
+            $collectionName = $browser->text('.thumbnail .caption a');
+
+            // Products Page
+            $browser->clickLink($collectionName)
+                    ->assertSee($collectionName);
+
+            // Get Product Name
+            $productName = $browser->text('.thumbnail .caption a');
+
+            $browser->clickLink($productName)
                     // Product Page
                     ->assertSee($productName)
                     ->press('Add To Cart')
