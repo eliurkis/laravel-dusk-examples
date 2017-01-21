@@ -13,7 +13,7 @@ class HomePage extends Page
      */
     public function url()
     {
-        return parse_url(config('app.url'))['path'] . '/';
+        return (parse_url(config('app.url'))['path'] ?? null) . '/';
     }
 
     /**

@@ -5,7 +5,6 @@ namespace Tests\Browser;
 use Laravel\Dusk\Browser;
 use Tests\Browser\Pages\HomePage;
 use Tests\DuskTestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class CartTest extends DuskTestCase
 {
